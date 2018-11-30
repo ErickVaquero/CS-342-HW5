@@ -1,0 +1,45 @@
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//										CS 342 FALL 2018										//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//		Author:			Jeremy Robles															//
+//		Instructor:     Dr. John T. Bell																//
+//		Lecture:		12:30 PM																//
+//		Assignment:		HW4																		//
+//		File Name:		MoveSell.java															//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//		Description:																			//
+//	Implements the Move interface. Allows a player to sell an item at a shop.					//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+public class MoveSell  implements Move
+{
+/////////////////////////////////////////// ATTRIBUTES ///////////////////////////////////////////
+	private Character character;
+	private Place place;
+	private String argument;
+	
+//////////////////////////////////////////CONSTRUCTOR //////////////////////////////////////////
+	MoveSell(Character ch, Place p, String arg)
+	{
+		character = ch;
+		place = p;
+		argument = arg;
+	}
+	
+////////////////////////////////////////MEMBER FUNCTIONS ////////////////////////////////////////	
+//--------------------------------------------------------------------------------------------
+	@Override
+	public void execute() 
+	{
+		if ((place instanceof Shop) == false)
+		{
+			System.out.println("You can only sell items in shops.");
+			return;
+		}
+		
+		Shop shop = (Shop) place;
+		
+		shop.sell(character, argument);
+	}
+}// End of public class MoveSell  implements Move

@@ -1,0 +1,43 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//										CS 342 FALL 2018										//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//		Author:			Jeremy Robles															//
+//		Instructor:     Dr. John T. Bell														//
+//		Lecture:		12:30 PM																//
+//		Assignment:		HW4																		//
+//		File Name:		NPC.java																//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//		Description:																			//
+//	A child class of Character. This type of character is controller by the computer.			//
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.util.Scanner;
+
+public class NPC extends Character
+{
+/////////////////////////////////////////// ATTRIBUTES ///////////////////////////////////////////
+	
+//////////////////////////////////////////CONSTRUCTORS //////////////////////////////////////////
+	NPC(Scanner stream, double gameVersion, int charType)
+	{
+		super(stream, gameVersion);
+		
+
+		if (charType == 1)
+			nextMove = new NeutralAI();
+		else
+			nextMove = new AggressiveAI();
+	}
+	
+////////////////////////////////////////MEMBER FUNCTIONS ////////////////////////////////////////
+//--------------------------------------------------------------------------------------------
+	@Override
+	public void makeMove()
+	{
+		Move action = nextMove.getMove(this, here);
+		action.execute();
+
+		placeID = here.getID();
+	}// End public void makeMove()
+	
+}// End public class NPC extends Character
