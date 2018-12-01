@@ -3,24 +3,50 @@ import java.util.Scanner;
 
 public class IO
 {
-    public static final Text = 0;
-    public static final GUI_1 = 1;
-    public static final GUI_2 = 2;
-    public static final GUI_3 = 3;
-
+	private UserInterface UInterface; 
+	private TextInterface GUI_Text;
+	private GUI_1 GUI_Erick;
+	private GUI_2 GUI_Jeremy;
+	private GUI_3 GUI_Cecilia;
+	
+	
+	
+    public static final int OPTION_0 = 0;
+    public static final int OPTION_1 = 1;
+    public static final int OPTION_2 = 2;
+    public static final int OPTION_3 = 3;
+    
+    
     public void display(String s)
     {
-
+    	UInterface.display(s);
     }
 
-    public String getLine(void)
+    public String getLine()
     {
-
+    	return UInterface.getLine();
     }
 
     public void selectInterface(int GUI)
     {
-
+    	switch(GUI)
+    	{
+    	case OPTION_0:
+    		UInterface = GUI_Text;
+    		return;
+    	case OPTION_1:
+    		UInterface = GUI_Erick;
+    		return;
+    	case OPTION_2:
+    		UInterface = GUI_Jeremy;
+    		return;
+    	case OPTION_3:
+    		UInterface = GUI_Cecilia;
+    		return;
+    	default:
+    		return;
+    	}
+    	
     }
 
 

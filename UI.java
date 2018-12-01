@@ -26,11 +26,13 @@ public class UI implements DecisionMaker
 		
 		String input;		// User's raw input is stored here
 		String uCaseInput;	// User's raw input is converted to uppercase and stored here
-		Scanner scanner = KeyboardScanner.getKeyboardScanner();
+		//Scanner scanner = KeyboardScanner.getKeyboardScanner();
 
 		p.display();
-		System.out.print("Enter input: ");
-		input = scanner.nextLine();
+		//System.out.print("Enter input: ");
+		ch.io.display("Enter input: ");
+		//input = scanner.nextLine();
+		input = ch.io.getLine();
 		uCaseInput = input.toUpperCase();
 		
 		// Examine the input and execute the proper actions

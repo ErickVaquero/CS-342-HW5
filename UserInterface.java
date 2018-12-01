@@ -5,6 +5,6 @@ public interface UserInterface
 {
 
 	public void display(String s);
-    public String getLine(void);
+    public String getLine();
 
 }//end public class UserInterface

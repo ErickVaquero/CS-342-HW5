@@ -38,6 +38,7 @@ public abstract class Character
 	protected Gear equippedGear;	          // Currently equipped gear
 	protected Weapon equippedWeapon;	      // Currently equipped weapon
 	protected boolean incapacitated;	      // Whether the character can still move or not.
+	protected IO io;
 	
 	protected static HashMap<Integer, Character>	// Mapping of all Place instances sorted by ID
 	 hmap = new HashMap<Integer, Character>();
@@ -200,7 +201,20 @@ public abstract class Character
 	// Shows the character's inventory
 	public void showInventory()
 	{
-		System.out.println("Stats: ");
+		/*System.out.println("Stats: ");
+		System.out.println("Level: " + level + ", EXP: " + exp + ", " + money + "G");
+		System.out.println("HP: " + currentHealth + "/" + maxHealth + ", Strength: " + strength);
+		System.out.println("Capacity: " + currentInventorySpace() + "/" + inventorySpace);
+		
+		System.out.println("Items: ");
+		int collectionSize = collection.size();
+		if (collectionSize == 0)
+			System.out.println("Nothing\n");
+		else
+			for (int i = 0; i < collectionSize; i++)
+				collection.get(i).printDescription();*/
+		
+		io.display("Stats: ");
 		System.out.println("Level: " + level + ", EXP: " + exp + ", " + money + "G");
 		System.out.println("HP: " + currentHealth + "/" + maxHealth + ", Strength: " + strength);
 		System.out.println("Capacity: " + currentInventorySpace() + "/" + inventorySpace);
@@ -495,7 +509,8 @@ public abstract class Character
 			currentHealth += 100;
 			maxHealth += 100;
 			strength += 1;
-			System.out.println(name + " leveled up to lvl " + level + "!");
+			//System.out.println(name + " leveled up to lvl " + level + "!");
+			io.display(name + " leveled up to lvl " + level + "!");
 		}
 	}
 	
