@@ -4,7 +4,7 @@
 public interface UserInterface
 {
 
-	public void display(String s);
-    public String getLine();
+	public abstract void display(String s);
+    public abstract String getLine();
 
 }//end public class UserInterface

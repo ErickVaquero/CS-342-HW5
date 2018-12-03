@@ -54,7 +54,7 @@ public abstract class Character
 		collection = new Vector<Artifact>();
 		equippedGear = null;
 		equippedWeapon = null;
-		
+		io = new IO();
 		
 		placeID = stream.nextInt();
 
@@ -137,9 +137,9 @@ public abstract class Character
 	public void print()
 	{
 		//Print out type of character and description
-		System.out.print("Character: " + name + "\n" + description);
-		System.out.println("Current location: " + here.name() + "(" + placeID + ")");
-		System.out.println(name + "'s Inventory:");
+		io.display("Character: " + name + "\n" + description);
+		io.display("Current location: " + here.name() + "(" + placeID + ")");
+		io.display(name + "'s Inventory:");
 		//Print out inventory
 		showInventory();
 	}//end member method public void print()
@@ -148,7 +148,7 @@ public abstract class Character
 	// Displays the character's simplified info
 	public void display()
 	{
-		System.out.print(name + "\n" + description);
+		io.display(name + "\n" + description);
 	}//end member method public void display()
 	
 	
@@ -215,14 +215,14 @@ public abstract class Character
 				collection.get(i).printDescription();*/
 		
 		io.display("Stats: ");
-		System.out.println("Level: " + level + ", EXP: " + exp + ", " + money + "G");
-		System.out.println("HP: " + currentHealth + "/" + maxHealth + ", Strength: " + strength);
-		System.out.println("Capacity: " + currentInventorySpace() + "/" + inventorySpace);
+		io.display("Level: " + level + ", EXP: " + exp + ", " + money + "G");
+		io.display("HP: " + currentHealth + "/" + maxHealth + ", Strength: " + strength);
+		io.display("Capacity: " + currentInventorySpace() + "/" + inventorySpace);
 		
-		System.out.println("Items: ");
+		io.display("Items: ");
 		int collectionSize = collection.size();
 		if (collectionSize == 0)
-			System.out.println("Nothing\n");
+			io.display("Nothing\n");
 		else
 			for (int i = 0; i < collectionSize; i++)
 				collection.get(i).printDescription();
@@ -279,7 +279,7 @@ public abstract class Character
 		if (equippedWeapon != null)
 			damage*= equippedWeapon.baseAttack();
 		
-		System.out.println(name + " attacks " + target.name() +
+		io.display(name + " attacks " + target.name() +
 		" for " + damage + " damage!");
 		//Attack target and receive experience points
 		addEXP(target.receiveAttack(-1*damage));
@@ -327,8 +327,8 @@ public abstract class Character
 		{
 			if (currentHealth > maxHealth)
 				currentHealth = maxHealth;
-			System.out.println(name + " healed by " + damage + "!");
-			System.out.println("Health: " + currentHealth + "/" + maxHealth);
+			io.display(name + " healed by " + damage + "!");
+			io.display("Health: " + currentHealth + "/" + maxHealth);
 			
 			return damage/15;
 		}
@@ -351,14 +351,14 @@ public abstract class Character
 	{
 		if (item == null)
 		{
-			System.out.println("Could not give the item.");
+			io.display("Could not give the item.");
 			return;
 		}
 		
 		// Character cannot give item if they don't have it in the first place
 		if (hasArtifact(item) == false)
 		{
-			System.out.println("You don't even have the " + item.name() + " to give!");
+			io.display("You don't even have the " + item.name() + " to give!");
 			return;
 		}
 		
@@ -366,7 +366,7 @@ public abstract class Character
 		Artifact tempArtifact = item;
 		this.removeArtifact(item);
 		target.addArtifact(tempArtifact);
-		System.out.println(name + " gives the " + tempArtifact.name() +
+		io.display(name + " gives the " + tempArtifact.name() +
 				" to " + target.name());
 	}// End public void giveItem(Character target, Artifact item)
 	
@@ -377,14 +377,14 @@ public abstract class Character
 		// Don't equip if outfit doesn't exist, or character is already wearing something
 		if (outfit == null || equippedGear != null)
 		{
-			System.out.println("Could not equip the item.");
+			io.display("Could not equip the item.");
 			return;
 		}
 		
 		// Character cannot equip item if they don't have it in the first place
 		if (hasArtifact(outfit) == false)
 		{
-			System.out.println("You don't even have the " + outfit.name() + " to equip!");
+			io.display("You don't even have the " + outfit.name() + " to equip!");
 			return;
 		}
 		
@@ -395,7 +395,7 @@ public abstract class Character
 		// Apply bonuses
 		maxHealth += equippedGear.maxHealthBoost();
 		strength += equippedGear.strengthBoost();
-		System.out.println(name + " is now wearing " + outfit.name() + ".");
+		io.display(name + " is now wearing " + outfit.name() + ".");
 
 	}
 	
@@ -404,7 +404,7 @@ public abstract class Character
 	{
 		if (equippedGear == null)
 		{
-			System.out.println("It's dangerous to go ahead naked, so you keep your clothes on.");
+			io.display("It's dangerous to go ahead naked, so you keep your clothes on.");
 			return;
 		}
 		
@@ -416,7 +416,7 @@ public abstract class Character
 		Artifact tempArtifact = equippedGear;
 		equippedGear = null;
 		this.addArtifact(tempArtifact);
-		System.out.println(name + " takes off the " + tempArtifact.name() + ".");
+		io.display(name + " takes off the " + tempArtifact.name() + ".");
 	}
 	
 //--------------------------------------------------------------------------------------------	
@@ -424,14 +424,14 @@ public abstract class Character
 	{
 		if (weapon == null)
 		{
-			System.out.println("Could not equip the item.");
+			io.display("Could not equip the item.");
 			return;
 		}
 		
 		// Character cannot equip item if they don't have it in the first place
 		if (hasArtifact(weapon) == false)
 		{
-			System.out.println("You don't even have the " + weapon.name() + " to equip!");
+			io.display("You don't even have the " + weapon.name() + " to equip!");
 			return;
 		}
 		
@@ -439,7 +439,7 @@ public abstract class Character
 		equippedWeapon = weapon;
 		
 		collection.removeElement(weapon);
-		System.out.println(name + " is now holding a " + equippedWeapon.name() + ".");
+		io.display(name + " is now holding a " + equippedWeapon.name() + ".");
 	}
 	
 //--------------------------------------------------------------------------------------------
@@ -447,7 +447,7 @@ public abstract class Character
 	{
 		if (equippedWeapon == null)
 		{
-			System.out.println("You have nothing to unequip.");
+			io.display("You have nothing to unequip.");
 			return;
 		}
 		
@@ -455,7 +455,7 @@ public abstract class Character
 		Artifact tempArtifact = equippedWeapon;
 		this.addArtifact(tempArtifact);
 		equippedWeapon = null;
-		System.out.println(name + " takes off the " + tempArtifact.name() + ".");
+		io.display(name + " takes off the " + tempArtifact.name() + ".");
 	}
 //--------------------------------------------------------------------------------------------
 	// Returns the character corresponding to input
@@ -543,7 +543,7 @@ public abstract class Character
 		if (currentHealth <= 0)			// Incapitated
 		{
 			currentHealth = 0;
-			System.out.println(name + " is incapacitated!");
+			io.display(name + " is incapacitated!");
 			incapacitated = true;
 			dropAllItems();
 		}

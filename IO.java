@@ -16,6 +16,15 @@ public class IO
     public static final int OPTION_2 = 2;
     public static final int OPTION_3 = 3;
     
+    public IO()
+    {
+    	GUI_Text = new TextInterface();
+    	GUI_Erick = new GUI_1();
+    	GUI_Jeremy = new GUI_2();
+    	GUI_Cecilia = new GUI_3();
+    	//UInterface = GUI_Jeremy;
+    	UInterface = GUI_Text;
+    }
     
     public void display(String s)
     {
