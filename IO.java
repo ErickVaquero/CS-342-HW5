@@ -8,6 +8,7 @@ public class IO
 	private GUI_1 GUI_Erick;
 	private GUI_2 GUI_Jeremy;
 	private GUI_3 GUI_Cecilia;
+	protected Character character;
 	
 	
 	
@@ -16,14 +17,16 @@ public class IO
     public static final int OPTION_2 = 2;
     public static final int OPTION_3 = 3;
     
-    public IO()
+    public IO(Character c)
     {
+
+    	character = c;
     	GUI_Text = new TextInterface();
     	GUI_Erick = new GUI_1();
-    	GUI_Jeremy = new GUI_2();
+    	GUI_Jeremy = new GUI_2(character);
     	GUI_Cecilia = new GUI_3();
-    	//UInterface = GUI_Jeremy;
-    	UInterface = GUI_Text;
+    	UInterface = GUI_Jeremy;
+    	//UInterface = GUI_Text;
     }
     
     public void display(String s)
@@ -57,6 +60,10 @@ public class IO
     	}
     	
     }
-
+    
+    public void refresh()
+    {
+    	GUI_Jeremy.refresh();
+    }
 
 }//end public class IO

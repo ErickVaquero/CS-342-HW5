@@ -162,4 +162,10 @@ public class Artifact {
 		System.out.println("keyPattern: " + keyPattern);
 		
 	}
+	
+	public String summary()
+	{
+		return description + "\n" + "Value: " + value + "G\n" + "Weight: " + mobility;
+	}
+
 }// End of public class Artifact

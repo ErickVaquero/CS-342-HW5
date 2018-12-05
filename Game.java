@@ -221,7 +221,7 @@ public class Game
 		int charSize = characters.size();
 		Character currentCharacter = null;
 		
-		while (true)
+		//while (true)
 		{
 			for (int i = 0; i < charSize; i++)
 			{
@@ -229,6 +229,7 @@ public class Game
 				
 				if (currentCharacter.incapacitated() == false)
 				{
+					currentCharacter.refreshGUI();
 					System.out.println(CleanLineScanner.divider1);
 					System.out.println("==> " + currentCharacter.name
 					+ "'s turn (HP " + currentCharacter.healthToString() + ") <==\n");

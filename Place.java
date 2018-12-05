@@ -393,6 +393,30 @@ public class Place {
 			 
 			 return target;
 		}
+		
+		public int charVectorSize()
+		{
+			return charVector.size();
+		}
+		
+		public int artifactVectorSize()
+		{
+			return artifactVector.size();
+		}
+		
+		public Character charVectorAt(int i)
+		{
+			if (i < 0 || i >= charVectorSize())
+				return null;
+			return charVector.get(i);
+		}
+		
+		public Artifact artifactVectorAt(int i)
+		{
+			if (i < 0 || i >= charVectorSize())
+				return null;
+			return artifactVector.get(i);
+		}
 }// End of public Place class
 
 

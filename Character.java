@@ -54,7 +54,6 @@ public abstract class Character
 		collection = new Vector<Artifact>();
 		equippedGear = null;
 		equippedWeapon = null;
-		io = new IO();
 		
 		placeID = stream.nextInt();
 
@@ -82,6 +81,8 @@ public abstract class Character
 		incapacitated = false;
 		//Insert this instance into the hash map
 		hmap.put(ID,this);
+
+		io = new IO(this);
 	}//end constructor Character(Scanner stream, int version)
 	
 //--------------------------------------------------------------------------------------------
@@ -555,4 +556,37 @@ public abstract class Character
 		return currentHealth + "/" + maxHealth;
 	}
 	
+	public Place here()
+	{
+		return here;
+	}
+	
+	public String description()
+	{
+		return description;
+	}
+	
+	public String summary()
+	{
+		String s = "Level: " + level + "\nEXP: " + exp + "/100\n" + money + "G\n"
+				+"HP: " + currentHealth + "/" + maxHealth + "\nStrength: " + strength;
+		return s;
+	}
+	
+	public String inventoryString()
+	{
+		return currentInventorySpace() + "/" + inventorySpace;
+	}
+	
+	public Artifact collectionAt(int i)
+	{
+		if (i < 0 || i >= collection.size() || i >= inventorySpace)
+			return null;
+		return collection.get(i);
+	}
+	
+	public void refreshGUI()
+	{
+		io.refresh();
+	}
 }// End public class Character
