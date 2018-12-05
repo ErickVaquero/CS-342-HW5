@@ -33,8 +33,8 @@ public class MoveDrop implements Move
 	{
 		if (place instanceof Shop)
 		{
-			System.out.println("The vendor won't allow you to drop your items.");
-			System.out.println("\"I'll be happy to buy that off you instead!\"");
+			character.display("The vendor won't allow you to drop your items.");
+			character.display("\"I'll be happy to buy that off you instead!\"");
 			return;
 		}
 		
@@ -42,11 +42,11 @@ public class MoveDrop implements Move
 		Artifact temp = character.getArtifactByName(argument);
 		if (temp == null)
 		{
-			System.out.println(character.name() + " could not drop the " + argument.toLowerCase() + ".");
+			character.display(character.name() + " could not drop the " + argument.toLowerCase() + ".");
 			return;
 		}
 		character.removeArtifact(temp);
-		System.out.println(character.name() + " dropped the " + argument.toLowerCase()
+		character.display(character.name() + " dropped the " + argument.toLowerCase()
 		+ " in the " + place.name() + ".");
 		
 		

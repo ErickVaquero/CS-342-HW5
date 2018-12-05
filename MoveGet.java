@@ -35,15 +35,15 @@ public class MoveGet implements Move
 		//System.out.println(CleanLineScanner.divider1);
 		if (place instanceof Shop)
 		{
-			System.out.println("The vendor won't allow you to pick up the merchandise.");
-			System.out.println("\"Hey sexy stranger! Don't steal!\"");
+			character.display("The vendor won't allow you to pick up the merchandise.");
+			character.display("\"Hey sexy stranger! Don't steal!\"");
 			return;
 		}
 		
 		//Character has no space to carry more items
 		if (character.inventorySpace() == character.currentInventorySpace())
 		{
-			System.out.println(character.name() + " has no more space to carry anything!");
+			character.display(character.name() + " has no more space to carry anything!");
 			return;
 		}
 
@@ -53,21 +53,21 @@ public class MoveGet implements Move
 		//Item name does not exist
 		if (temp == null)
 		{
-			System.out.println(character.name() + " could not get the " + argument.toLowerCase() + ".");
+			character.display(character.name() + " could not get the " + argument.toLowerCase() + ".");
 			return;
 		}
 		
 		//Item is too heavy to carry, so drop item back on floor
 		if (character.strength() < temp.mobility || temp.mobility < 0)
 		{
-			System.out.println(argument.toLowerCase() + " is to heavy to carry!");
+			character.display(argument.toLowerCase() + " is to heavy to carry!");
 			place.addArtifact(temp);
 			return;
 		}
 		
 		//Add item to inventory
 		character.addArtifact(temp);
-		System.out.println(character.name() + " gets the " + argument.toLowerCase() + ".");
+		character.display(character.name() + " gets the " + argument.toLowerCase() + ".");
 		
 		
 	}

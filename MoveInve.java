@@ -32,7 +32,7 @@ public class MoveInve implements Move
 	{
 		//System.out.println(CleanLineScanner.divider1);
 		
-		System.out.println(character.name() + " finds a spot in the " +
+		character.display(character.name() + " finds a spot in the " +
 		place.name() + " to sit and look in their inventory:");
 		character.showInventory();
 	}

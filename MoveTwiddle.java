@@ -29,7 +29,7 @@ public class MoveTwiddle implements Move
 	{
 		//System.out.println(CleanLineScanner.divider1);
 		
-		System.out.println(character.name() + " spazzed out a bit and lost their turn.");
+		character.display(character.name() + " spazzed out a bit and lost their turn.");
 	}
 
 }// End of public class MoveTwiddle implements Move

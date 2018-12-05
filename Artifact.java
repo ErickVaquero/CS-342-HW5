@@ -123,7 +123,7 @@ public class Artifact {
 			place.useItem(this);
 			return;
 		}// End conditional if 
-	System.out.println("*You look in your pockets to use the " + name + ", but couldn't find it.");
+		character.display("*You look in your pockets to use the " + name + ", but couldn't find it.");
 	}
 	
 //--------------------------------------------------------------------------------------------

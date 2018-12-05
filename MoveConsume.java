@@ -36,7 +36,7 @@ public class MoveConsume implements Move
 	{
 		if (consumable == null)
 		{
-			System.out.println(character.name() + " could not consume the "
+			character.display(character.name() + " could not consume the "
 			+ argument + ".");
 			return;
 		}

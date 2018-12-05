@@ -36,7 +36,7 @@ public class MoveUnequip implements Move
 	{
 		if(type != 0 && type != 1)
 		{
-			System.out.println(character.name() + " could not equip the "
+			character.display(character.name() + " could not equip the "
 			+ argument + ".");
 			return;
 		}

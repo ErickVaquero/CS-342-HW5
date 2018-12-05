@@ -30,7 +30,7 @@ public class UI implements DecisionMaker
 
 		p.display();
 		//System.out.print("Enter input: ");
-		ch.io.display("Enter input: ");
+		ch.io.display("\nEnter input: ");
 		//input = scanner.nextLine();
 		input = ch.io.getLine();
 		uCaseInput = input.toUpperCase();

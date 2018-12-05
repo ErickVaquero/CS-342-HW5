@@ -55,17 +55,17 @@ public class Shop extends Place{
 		// Item not found
 		if(temp == null)
 		{
-			System.out.print("You couldn't purchase that item.");
+			c.display("You couldn't purchase that item.");
 			return;
 		}
 		// Character does not have enough money
 		if (c.money() < temp.value()) {
-			System.out.println("You can't afford that, you're too poor.");
+			c.display("You can't afford that, you're too poor.");
 			return;
 		}
 		// Character does not have enough space on their inventory
 		if(c.inventorySpace() == c.currentInventorySpace()) {
-			System.out.println("You have no space to carry that.");
+			c.display("You have no space to carry that.");
 			return;
 		}
 		
@@ -80,7 +80,7 @@ public class Shop extends Place{
 		Artifact temp = c.getArtifactByName(item);
 		
 		if (temp == null) {
-			System.out.print("We couldn't sell that item.");
+			c.display("We couldn't sell that item.");
 			return;
 		}
 		

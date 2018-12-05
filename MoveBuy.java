@@ -34,7 +34,7 @@ public class MoveBuy implements Move
 	{
 		if ((place instanceof Shop) == false)
 		{
-			System.out.println("You can only buy items in shops.");
+			character.display("You can only buy items in shops.");
 			return;
 		}
 		

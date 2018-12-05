@@ -35,7 +35,7 @@ public class MoveAttack  implements Move
 	{
 		if (target == null)
 		{
-			System.out.println(character.name() + " could not attack "
+			character.display(character.name() + " could not attack "
 			+ argument + ".");
 			return;
 		}

@@ -34,7 +34,7 @@ public class MoveSell  implements Move
 	{
 		if ((place instanceof Shop) == false)
 		{
-			System.out.println("You can only sell items in shops.");
+			character.display("You can only sell items in shops.");
 			return;
 		}
 		

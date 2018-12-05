@@ -37,11 +37,11 @@ public class MoveUse implements Move
 		
 		if (temp == null)
 		{
-			System.out.println(character.name() + " could not use " +
+			character.display(character.name() + " could not use " +
 					argument.toLowerCase() + " in the " + place.name() + ".");
 			return;
 		}
-		System.out.println(character.name() + " uses " +
+		character.display(character.name() + " uses " +
 				argument.toLowerCase() + " in the " + place.name() + ".");
 		temp.use(character, place);
 		

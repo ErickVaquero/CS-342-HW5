@@ -282,6 +282,8 @@ public abstract class Character
 		
 		io.display(name + " attacks " + target.name() +
 		" for " + damage + " damage!");
+		target.display(name + " attacks " + target.name() +
+		" for " + damage + " damage!");
 		//Attack target and receive experience points
 		addEXP(target.receiveAttack(-1*damage));
 
@@ -546,6 +548,8 @@ public abstract class Character
 			currentHealth = 0;
 			io.display(name + " is incapacitated!");
 			incapacitated = true;
+			description = "*The " + name + "'s dead body lies in the " + here.name() + "\n";
+			name = "(x) " + name;
 			dropAllItems();
 		}
 	}
@@ -568,7 +572,7 @@ public abstract class Character
 	
 	public String summary()
 	{
-		String s = "Level: " + level + "\nEXP: " + exp + "/100\n" + money + "G\n"
+		String s = "Level: " + level + "\nEXP: " + exp%100 + "/100" + " (" + exp + " total)\n" + money + "G\n"
 				+"HP: " + currentHealth + "/" + maxHealth + "\nStrength: " + strength;
 		return s;
 	}
@@ -588,5 +592,10 @@ public abstract class Character
 	public void refreshGUI()
 	{
 		io.refresh();
+	}
+	
+	public void display(String s)
+	{
+		io.display(s);
 	}
 }// End public class Character

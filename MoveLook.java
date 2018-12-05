@@ -31,7 +31,7 @@ public class MoveLook implements Move
 	{
 		//System.out.println(CleanLineScanner.divider1);
 		
-		System.out.println(character.name() + " takes a moment to focus " +
+		character.display(character.name() + " takes a moment to focus " +
 		"and re-examines the " + place.name() + "\n");
 		place.look();
 	}

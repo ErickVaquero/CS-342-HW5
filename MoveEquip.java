@@ -36,7 +36,7 @@ public class MoveEquip  implements Move
 	{
 		if (equipable == null)
 		{
-			System.out.println(character.name() + " could not equip the "
+			character.display(character.name() + " could not equip the "
 			+ argument + ".");
 			return;
 		}

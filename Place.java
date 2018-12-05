@@ -167,7 +167,7 @@ public class Place {
 				return (vectorDirection.get(i).follow());	
 			}
 		}
-		System.out.println("Invalid Direction " + this.name()); // used for testing
+		//System.out.println("Invalid Direction " + this.name()); // used for testing
 			
 		// Did not find a valid direction, return itself
 		return this; 

@@ -33,7 +33,7 @@ public class MoveQuit implements Move
 		//System.out.println(CleanLineScanner.divider1);
 		
 		place.removeCharacter(character);
-		System.out.println(character.name() + " left the map."); 
+		character.display(character.name() + " left the map."); 
 		System.exit(0);
 	}
 
