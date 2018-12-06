@@ -33,7 +33,7 @@ public class MoveLook implements Move
 		
 		character.display(character.name() + " takes a moment to focus " +
 		"and re-examines the " + place.name() + "\n");
-		place.look();
+		character.display(place.look());
 	}
 
 }// End of public class MoveLook implements Move

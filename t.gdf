@@ -1,4 +1,4 @@
-GDF 5.1 Mystic City - Populated! // Magic word, version number, and Environment name.
+GDF 5.1 Abandoned Castle // Magic word, version number, and Environment name.
 
 PLACES 14	// Fourteen Places in this file
 // In this test file, the first 6 room numbers are chosen in an X-Y fashion
@@ -154,15 +154,15 @@ He's just a simple human being
 
 2		// An Ogre is a non-player character
 13		// Hanging out in the Ogre's Lair
-2		The Ugly Green Ogre
+2		Smelly Green Ogre
 5 599 100 5 500 5
 2
-Shrek is love
-Shrek is life
+"Shrek is love,
+Shrek is life"
 
 1		//  Where oh where can the dog be ?
 0		//  Where oh where can the dog be ?
-3		A Fluffy Dog
+3		Fluffy Dog
 1 180 10 1 0 2
 1
 Who's a good boy?!
@@ -252,9 +252,9 @@ Someone's hard-earned college degree.
 Might as well toss it as it's useful to no one.
 
 GENERIC 105
-3		100	1	0  Sparkling rubies
+3		100	1	0  Rare Tea
 1
-The rubies are bright, shiny, and fiery red!
+You can make a nice cup of tea with these expensive leaves.
 
 GENERIC 13
 4		11	2	1001	Brass key	// Potions storeroom
@@ -289,7 +289,7 @@ A delicious sandwich.
 You feel that eating this sandwich will make you a lot stronger.
 0 1 5 5 0
 
-CONSUMABLE -42
+CONSUMABLE 12
 9	20	1	0	Floor Icecream
 2
 A scoop of loose icecream found on the floor.
@@ -316,10 +316,9 @@ Carrying this would definitely let you carry neat things like chapstick and Barb
 
 CONSUMABLE -23
 13		50	1	0  Library Totebag
-3
+2
 This is the kind of bags that libraries give out to its patrons.
-You don't want to be seen carrying this
-because you don't want people thinking you're a nerd.
+You don't want to be seen carrying this because you don't want people thinking you're a nerd.
 0 0 0 0 15
 
 CONSUMABLE 11
@@ -369,7 +368,7 @@ Not a bat high on crack, but rather, a baseball bat with a crack.
 10
 
 WEAPON 101
-21		3	1	0  Oak mallet
+21		3	1	0  Oak Mallet
 2
 This is a large wooden mallet, with a 3-foot handle
 and a large wooden head about 6 inches in diameter.
@@ -383,15 +382,15 @@ A stick used to help support walking.
 
 //GEAR//
 GEAR 12
-22 20 1 0 Nurse Outfit
+22 20 1 0 Nurse's Outfit
 1
-The scrubs compliment your eye color
+The scrubs compliment your eye color.
 50 0
 
 GEAR 101
 23 20 1 0 Silver Armor
 1
-You check yourself out in the armors reflection
+You can check yourself out in the armor's reflection.
 0 50
 
 GEAR -11
@@ -411,6 +410,6 @@ It's a sexy postal worker costume.
 LAMP 12
 25 30 1 0 Lava Lamp
 1
-A funky lava lamp to keep you safe in the dark
+A funky lamp to keep you safe in the dark.
 
 

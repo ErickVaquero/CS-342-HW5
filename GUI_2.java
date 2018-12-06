@@ -129,7 +129,7 @@ public class GUI_2 implements UserInterface
 		window.add(column1);
 		window.add(column2);
 		window.add(column3);
-		window.setPreferredSize(new Dimension (1000, 800));
+		window.setPreferredSize(new Dimension (1300, 700));
 		window.pack();
 		window.setVisible(false);
 	}
@@ -149,8 +149,8 @@ public class GUI_2 implements UserInterface
 
 		window.setVisible(true);
 		while (isWaiting)
-		{
-			System.out.println("LOOPER");
+		{ 
+			System.out.print("");
 		}
 		
 		window.setVisible(false);
@@ -256,6 +256,37 @@ public class GUI_2 implements UserInterface
 			}
 			
 			invePanel.add(placeItemLabel.get(i));
+		}
+		if (character.hasEquippedGear())
+		{
+			String itemDesc = "<html>";
+			itemDesc+= character.equippedGearDescription();
+			itemDesc = itemDesc.replaceAll("\n", "<br/>");
+			itemDesc+= "</html>";
+			
+			outfitLabel.setText("Equipped Weapon: " + character.equippedGearName());
+			outfitLabel.setToolTipText(itemDesc);
+			
+		}
+		else
+		{
+			outfitLabel.setText("Equipped Outfit: NONE");
+			outfitLabel.setToolTipText("You are wearing casual Friday clothes.");
+		}
+		
+		if (character.hasEquippedWeapon())
+		{
+			String itemDesc = "<html>";
+			itemDesc+= character.equippedGearDescription();
+			itemDesc = itemDesc.replaceAll("\n", "<br/>");
+			itemDesc+= "</html>";
+			weaponLabel.setText("Equipped Weapon: " + character.equippedWeaponName());
+			weaponLabel.setToolTipText(itemDesc);
+		}
+		else
+		{
+			weaponLabel.setText("Equipped Weapon: NONE");
+			weaponLabel.setToolTipText("You brandish nothing but your fists.");
 		}
 		
 		//window.repaint();

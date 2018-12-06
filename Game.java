@@ -16,6 +16,12 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 import java.util.Vector;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -220,6 +226,7 @@ public class Game
 		
 		int charSize = characters.size();
 		Character currentCharacter = null;
+		//MainFrame gameMainScreen = new MainFrame();
 		
 		while (true)
 		{
@@ -230,14 +237,97 @@ public class Game
 				if (currentCharacter.incapacitated() == false)
 				{
 					currentCharacter.refreshGUI();
+					//gameMainScreen.refresh();
 					System.out.println(CleanLineScanner.divider1);
 					System.out.println("==> " + currentCharacter.name()
 					+ "'s turn (HP " + currentCharacter.healthToString() + ") <==\n");
 					currentCharacter.makeMove();
 					currentCharacter.refreshGUI();
+					//gameMainScreen.refresh();
 				}
 			}
 		}
 	}// End member function void play()
+	
+	private class MainFrame extends JFrame
+	{
+		private Vector<JPanel> characterInfo;
+		private Vector<TitledBorder> characterBorder;
+		private Vector<JLabel> characterPlace;
+		Vector<Vector<JLabel>> inventory;
+		public MainFrame()
+		{
+			this.setLayout(new FlowLayout());
+			setTitle(gameName);
+			inventory = new Vector<Vector<JLabel>>();
+			characterInfo = new Vector<JPanel>();
+			characterBorder = new Vector<TitledBorder>();
+			characterPlace = new Vector<JLabel>();
+			
+			int charVectorSize = characters.size();
+			for (int i = 0; i < charVectorSize; i++)
+			{
+				characterBorder.add(new TitledBorder(characters.get(i).name));
+				characterInfo.add(new JPanel());
+				
+				String charDesc = "<html>";
+				charDesc+= characters.get(i).description() + "\n"+ characters.get(i).summary();
+				charDesc = charDesc.replaceAll("\n", "<br/>");
+				charDesc+= "</html>";
+				
+				characterInfo.get(i).setToolTipText(charDesc);
+				characterInfo.get(i).setBorder(characterBorder.get(i));
+				characterPlace.add(new JLabel("[" + characters.get(i).here().name() + "]"));
+				
+				String placeDesc = "<html>";
+				placeDesc+= characters.get(i).here().description();
+				placeDesc = placeDesc.replaceAll("\n", "<br/>");
+				placeDesc+= "</html>";
+				
+				characterPlace.get(i).setToolTipText(placeDesc);
+				characterInfo.get(i).add(characterPlace.get(i));
+				
+				add(characterInfo.get(i));
+			}
+			
+			setPreferredSize(new Dimension (1400, 400));
+			pack();
+			setVisible(true);
+		}
+		
+		public void refresh()
+		{
+			
+			int charVectorSize = characters.size();
+			for (int i = 0; i < charVectorSize; i++)
+			{
+				characterInfo.get(i).removeAll();
+				characterBorder.add(new TitledBorder(characters.get(i).name));
+				characterInfo.add(new JPanel());
+				
+				
+				String charDesc = "<html>";
+				charDesc+= characters.get(i).description() + "\n"+ characters.get(i).summary();
+				charDesc = charDesc.replaceAll("\n", "<br/>");
+				charDesc+= "</html>";
+				
+				characterInfo.get(i).setToolTipText(charDesc);
+				characterInfo.get(i).setBorder(characterBorder.get(i));
+				characterPlace.add(new JLabel("[" + characters.get(i).here().name() + "]"));
+				
+				String placeDesc = "<html>";
+				placeDesc+= characters.get(i).here().description();
+				placeDesc = placeDesc.replaceAll("\n", "<br/>");
+				placeDesc+= "</html>";
+				
+				characterPlace.get(i).setToolTipText(placeDesc);
+				characterInfo.get(i).add(characterPlace.get(i));
+				
+				add(characterInfo.get(i));
+			}
+			
+			revalidate();
+		}
+	}
 	
 }// End public class Game

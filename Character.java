@@ -598,4 +598,29 @@ public abstract class Character
 	{
 		io.display(s);
 	}
+	
+	public boolean hasEquippedWeapon()
+	{
+		if (equippedWeapon == null)
+			return false;
+		return true;
+	}
+	
+	public boolean hasEquippedGear()
+	{
+		if (equippedGear == null)
+			return false;
+		return true;
+	}
+	
+	public String equippedGearDescription()
+	{
+		return equippedGear.summary();
+	}
+	
+	public String equippedWeaponDescription()
+	{
+		return equippedWeapon.summary();
+	}
+	
 }// End public class Character

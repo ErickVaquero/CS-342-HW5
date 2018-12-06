@@ -236,7 +236,10 @@ public class Place {
 	}
 	
 //--------------------------------------------------------------------------------------------
-	public void look() {
+	public String look() {
+
+		String s = "You are in the " + pName + "\n" + pDescription + "\n\n";
+		s += "The following artifacts are in this place: ";
 		System.out.println("You are in the " + pName);
 		System.out.println(pDescription);
 		System.getProperty("line.separator");
@@ -245,6 +248,7 @@ public class Place {
 		System.out.println("The following artifacts are in this place: ");
 		for (int i = 0; i < artifactVector.size(); i++) {
 			System.out.println("   " + artifactVector.get(i).name());
+			s+= "   "+ artifactVector.get(i).name() + "\n";
 		}
 		System.getProperty("line.separator");
 		
@@ -252,7 +256,11 @@ public class Place {
 		for (int i = 0; i < charVector.size(); i++)
 		{
 			charVector.get(i).display();
+			s+= "   "+ charVector.get(i).name() + "\n";
 		}
+		
+		return s;
+		
 	}
 
 //--------------------------------------------------------------------------------------------

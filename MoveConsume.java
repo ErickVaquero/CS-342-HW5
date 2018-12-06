@@ -42,5 +42,7 @@ public class MoveConsume implements Move
 		}
 
 		character.consumeItem((Consumable) consumable);
+		character.display(character.name() + " feels the effects of the "
+				+ argument + ".");
 	}
 }// End of public class MoveConsume implements Move
