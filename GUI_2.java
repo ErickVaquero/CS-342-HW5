@@ -158,6 +158,12 @@ public class GUI_2 implements UserInterface
 		return userInput;
 	}
 	
+	
+	
+	
+	
+	
+	
 	public void refresh()
 	{
 		thisPlace = character.here();

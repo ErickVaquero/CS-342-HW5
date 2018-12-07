@@ -50,7 +50,7 @@ public class GUI_1 implements UserInterface
 		for(Place p : pCollection)
 		{
 			places.add(p.name());
-		}
+		} 
 		String[] strings = places.toArray(new String[places.size()]);
 		return strings;
 	}
@@ -165,16 +165,12 @@ public class GUI_1 implements UserInterface
 	GUI_1(Character c){
 		thisCharacter = c;
 		
-		frame = new JFrame(c.name());
-		
-		
-		
+		frame = new JFrame(c.name()); //Create my window
 
-	    characters = getCharacterNames();
+	    characters = getCharacterNames(); //Get my array of 
 	    places = getPlaceNames();
 		
-		//String[] characters = {"1", "2", "3"};
-		//String[] places = {"1", "2", "3"};
+
 	    
 		
 	    tf1 = new JTextArea(); //This Character
@@ -267,16 +263,9 @@ public class GUI_1 implements UserInterface
         	    	tf6.setText("");
         	    	isWaiting = false;
 
-        	    	
-        	 	  
-                    
                     characters = getCharacterNames();
                     DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>(characters);
             		cb1.setModel(model);
-            		
-      	    	  
-                    //update();
-
             }
         });
 	
@@ -324,8 +313,6 @@ public class GUI_1 implements UserInterface
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<String>(characters);
 		cb1.setModel(model);
 		
-		//tf2.setText("\nInfo about selected character:\n\n" + cb1.getSelectedItem().toString() );
-		//tf5.setText("\nInfo about selected place:\n\n" + cb2.getSelectedItem().toString());
 		
 		
 		frame.setVisible(true);
