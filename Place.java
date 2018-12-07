@@ -32,7 +32,7 @@ public class Place {
 	protected Vector<Character>charVector = new Vector <Character>();
 		
 	// Requires static collection of all known places be kept within the Place class
-	private static HashMap<Integer,Place> placesMap = new HashMap<>(); 
+	protected static HashMap<Integer,Place> placesMap = new HashMap<>(); 
 	
 	// Creates a vector of type Direction in order to store valid directions
 	private Vector<Direction>vectorDirection = new Vector<Direction>();
@@ -235,6 +235,30 @@ public class Place {
 		System.getProperty("line.separator");
 	}
 	
+	public String getDisplayString()
+	{
+		
+		String t = "";
+		t = t + "This is the  " + pName + "\n";
+		t = t + pDescription + "\n";
+		
+		
+		t = t + "From here you can go: " + "\n|";
+		for (int i = 0 ; i < vectorDirection.size(); i++)
+		{
+			t = t + vectorDirection.get(i).directionToString() + " | ";
+		}
+		t = t + "\n";
+		
+		t = t + "The following artifacts are in this place: " + "\n";
+		for (int i = 0; i < artifactVector.size(); i++) {
+			t = t + "   " + artifactVector.get(i).name() + "\n";
+		}
+		
+		return t;
+	}
+	
+	
 //--------------------------------------------------------------------------------------------
 	public String look() {
 
@@ -365,14 +389,15 @@ public class Place {
 		//Added by Jeremy Robles. Checks if character exists in this place
 		public boolean characterExists(Character character)
 		{
-			int charVectorSize = charVector.size();
 
-			for (int i = 0; i < charVectorSize; i++)
+
+			for (int i = 0; i < charVector.size(); i++)
 				if (character == charVector.get(i))
 					return true;
 			
 			return false;
 		}
+		
 		
 //--------------------------------------------------------------------------------------------
 		//Added by Jeremy Robles. Finds random target to attack

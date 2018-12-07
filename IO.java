@@ -22,7 +22,7 @@ public class IO
 
     	character = c;
     	GUI_Text = new TextInterface();
-    	GUI_Erick = new GUI_1();
+    	GUI_Erick = new GUI_1(character);
     	GUI_Jeremy = new GUI_2(character);
     	GUI_Cecilia = new GUI_3();
     	UInterface = GUI_Jeremy;

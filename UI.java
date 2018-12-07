@@ -29,6 +29,8 @@ public class UI implements DecisionMaker
 		//Scanner scanner = KeyboardScanner.getKeyboardScanner();
 
 		p.display();
+		ch.io.display(p.getDisplayString());
+		
 		//System.out.print("Enter input: ");
 		ch.io.display("\nEnter input: ");
 		//input = scanner.nextLine();

@@ -37,16 +37,16 @@ public class MoveGo implements Move
 		Place temp = place.followDirection(argument);
 		if (temp == null)
 		{
-			character.display(character.name() + " could not go " + argument.toLowerCase() + ".");
+			character.io.display(character.name() + " could not go " + argument.toLowerCase() + ".");
 			return;
 		}
 		place.removeCharacter(character);
 		character.goToPlace(temp);
 		temp.addCharacter(character);
 		if (place == temp)
-			character.display(character.name() + " stays in the " + temp.name() + ".");
+			character.io.display(character.name() + " stays in the " + temp.name() + ".");
 		else
-			character.display(character.name() + " goes " + argument.toLowerCase() + " to the " + temp.name() + ".");
+			character.io.display(character.name() + " goes " + argument.toLowerCase() + " to the " + temp.name() + ".");
 	}
 
 }// End of public class MoveGo implements Move

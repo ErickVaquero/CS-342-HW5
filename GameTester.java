@@ -43,6 +43,9 @@ public class GameTester
 	// Main function
 	public static void main(String[] args) throws IOException,FileNotFoundException
 	{
+		
+		
+		
 		// Display Group info
 		printGroupInfo();
 		
@@ -83,6 +86,12 @@ public class GameTester
 		Game game = new Game(stream);
 		
 		// Begin gameplay
+		
+		//new GUI_1();
+		
+		if(false)
+			return;
+		
 		game.play();
 		
 		// Close stream
