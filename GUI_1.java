@@ -99,7 +99,6 @@ public class GUI_1 implements UserInterface
 	{
 		if (thisCharacter.here() == null)
 		{
-			System.out.println("EMPTY BRUH");
 			return "OOPS? ";
 		}
 		
