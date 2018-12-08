@@ -212,6 +212,7 @@ public class Direction {
 		{
 			return direction.toString();
 		}// End member method public String directionToString()
+
 			
 }// End of public class Direction
 

@@ -450,6 +450,7 @@ public class Place {
 				return null;
 			return artifactVector.get(i);
 		}
+
 }// End of public Place class
 
 

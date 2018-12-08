@@ -87,10 +87,10 @@ public class GameTester
 		
 		// Begin gameplay
 		
-		//new GUI_1();
-		
-		if(false)
-			return;
+//		new GUI_3();
+//		
+//		if(true)
+//			return;
 		
 		game.play();
 		
