@@ -98,6 +98,19 @@ public class UI implements DecisionMaker
 			uCaseInput = uCaseInput.replace("SELL ", "");
 			return new MoveSell(ch, p, uCaseInput);
 		}
+		else if (uCaseInput.contains("TEXT"))
+		{
+			ch.io.selectInterface(0);
+			return new MoveTwiddle(ch);
+		}
+		else if (uCaseInput.contains("GUI"))
+		{
+			uCaseInput = uCaseInput.replace("GUI ", "");
+			int pick = Integer.parseInt(uCaseInput);
+			ch.io.selectInterface(pick);
+			return new MoveTwiddle(ch);
+		}
+
 		// Could not understand user input
 		else
 			return new MoveTwiddle(ch);

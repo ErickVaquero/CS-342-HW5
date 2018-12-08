@@ -24,7 +24,7 @@ public class IO
     	GUI_Text = new TextInterface();
     	GUI_Erick = new GUI_1(character);
     	GUI_Jeremy = new GUI_2(character);
-    	GUI_Cecilia = new GUI_3();
+    	GUI_Cecilia = new GUI_3(character);
     	UInterface = GUI_Text;
     }
     
